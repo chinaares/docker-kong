@@ -15,7 +15,12 @@ To run this template execute:
 ```shell
 $ docker-compose up
 ```
-
+(
+Issues with starting kong cluster:Service not registered: Unexpected response code: 500 (CheckID does not have associated TTL)
+Fixed:
+$ compose up -d
+$ docker-compose stop consul; docker-compose rm -f consul; docker-compose up -d consul
+)
 To scale Kong (ie, to three instances) execute:
 
 ```shell
