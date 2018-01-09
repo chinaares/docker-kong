@@ -22,5 +22,5 @@ curl -Lso /tmp/containerpilot-${CONTAINERPILOT_VERSION}.sha1.txt \
 cat /tmp/containerpilot-${CONTAINERPILOT_VERSION}.sha1.txt
 cp -f /tmp/containerpilot-${CONTAINERPILOT_VERSION}.tar.gz nginx/containerpilot.tar.gz
 
-
-
+curl -Lo /tmp/consul_template_0.14.0_linux_amd64.zip https://releases.hashicorp.com/consul-template/0.14.0/consul-template_0.14.0_linux_amd64.zip
+cp -f /tmp/consul_template_0.14.0_linux_amd64.zip nginx/consul_template_0.14.0_linux_amd64.zip

@@ -9,12 +9,12 @@ RUN echo "deb-src http://mirrors.aliyun.com/debian/ stretch-proposed-updates mai
 RUN apt-get update && apt-get install -y curl unzip
 
 # we use consul-template to re-write our Nginx virtualhost config
-RUN curl -Lo /tmp/consul_template_0.14.0_linux_amd64.zip https://releases.hashicorp.com/consul-template/0.14.0/consul-template_0.14.0_linux_amd64.zip && \
-    unzip /tmp/consul_template_0.14.0_linux_amd64.zip && \
+COPY consul_template_0.14.0_linux_amd64.zip /tmp/consul_template_0.14.0_linux_amd64.zip
+RUN unzip /tmp/consul_template_0.14.0_linux_amd64.zip && \
     mv consul-template /bin
 
 # get ContainerPilot release
-ENV CONTAINERPILOT_VERSION 2.4.1
+ENV CONTAINERPILOT_VERSION 2.7.2
 COPY containerpilot.tar.gz /tmp/containerpilot.tar.gz
 RUN export CP_SHA1=198d96c8d7bfafb1ab6df96653c29701510b833c \
     && echo "${CP_SHA1}  /tmp/containerpilot.tar.gz" | sha1sum -c \
